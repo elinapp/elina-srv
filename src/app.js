@@ -9,10 +9,10 @@ const port = process.env.PORT || 5173;
 //App configuration
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(cookieParser());
-app.use(require("./middleware/auth").authenticate);
+app.use(require("../middleware/auth").authenticate);
 app.engine('hbs', exphbs({
     extname: '.hbs',
-    helpers: require('./public/js/helpers.js'),
+    helpers: require('../public/js/helpers.js'),
 }));
 app.set('views', './public/views')
 app.set('view engine', 'hbs');

@@ -1,9 +1,14 @@
-const {Router} = require('express');
-const router = Router();
-const {hash, createToken} = require('./middleware/auth.js');
+const express = require('express');
+const router = express.Router();
+const {hash, createToken} = require('../middleware/auth.js');
+
+if(process.env.MAINTENANCE.toLowerCase() === "true") router.use((req, res) => {
+    res.status(503);
+    res.render('errors/503')
+})
 
 //Routes
-router.use('/login', Router().use((req, res, next) => {
+router.use('/login', express.Router().use((req, res, next) => {
     if(!req?.logged) next();
     else res.redirect('/')
 }).get('/', (req, res) => {
@@ -28,5 +33,12 @@ router.get("/", (req, res) => {
     if(!req.logged) res.redirect('/login');
     else res.render('home');
 });
+
+// Other handlings
+router.use(express.static("public"));
+router.use((req, res) => {
+    res.status(404);
+    res.render('errors/404')
+})
 
 module.exports = router;
