@@ -1,0 +1,41 @@
+{
+  "name": "elina-srv",
+  "version": "1.0.0",
+  "description": "elina web server",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js",
+    "lint": "eslint . --ext .js",
+    "lint-fix": "eslint . --ext .js --fix"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/elinapp/elina-srv.git"
+  },
+  "keywords": [
+    "esp8266",
+    "nodemcu",
+    "rgb",
+    "addressable",
+    "webserver"
+  ],
+  "author": "guillaumearnx",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/elinapp/elina-srv/issues"
+  },
+  "homepage": "https://github.com/elinapp/elina-srv#readme",
+  "dependencies": {
+    "body-parser": "^1.20.1",
+    "cookie-parser": "^1.4.6",
+    "crypto": "^1.0.1",
+    "dotenv": "^16.0.3",
+    "express": "^4.18.2",
+    "express-handlebars": "^5.3.5"
+  },
+  "devDependencies": {
+    "eslint": "^8.26.0",
+    "nodemon": "^2.0.20"
+  }
+}
